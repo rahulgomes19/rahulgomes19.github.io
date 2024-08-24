@@ -52,13 +52,30 @@ nav ul li a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#box1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
+
 .professor-image {
     width: 100%;
     height: auto;
-    max-width: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
 }
 
 h2 {
