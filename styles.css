@@ -100,3 +100,11 @@ footer {
     padding: 10px 0;
     margin-top: auto;
 }
+/* Centered text */
+.lab-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
