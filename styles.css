@@ -89,7 +89,6 @@ h2 {
 
 .image{
     background-color: blue;
-    flex-grow: 2;
     max-width: 100%;
 }
 
