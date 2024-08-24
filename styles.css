@@ -75,7 +75,7 @@ nav ul li a:hover {
     width: 50%;
     height: auto;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: scale-down;
 }
 
 h2 {
