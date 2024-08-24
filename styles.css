@@ -6,20 +6,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-
-    @keyframes fadeInAnimation {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-            }
-        }
 }
 
 header {
@@ -99,6 +85,13 @@ nav ul li a:hover {
 
 h2 {
     color: #333;
+}
+
+.image{
+    background-color: blue;
+    flex-grow: 2;
+    max-width: 100%;
+    width: 100%;
 }
 
 footer {
