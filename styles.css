@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -32,25 +35,33 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-.main-section {
-    padding: 40px;
-    text-align: center;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.box {
+    width: 48%;
     background-color: white;
-    margin: 20px auto;
-    max-width: 800px;
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .professor-image {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    max-width: 200px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
 }
 
-h1, h2 {
+h2 {
     color: #333;
 }
 
@@ -59,7 +70,5 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
