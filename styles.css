@@ -44,22 +44,12 @@ nav ul li a:hover {
 }
 
 .box {
-    width: 100%;
+    flex-basis = 100%;
     background-color: white;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#box1 {
-    display: flex;
-    justify-content: space-between;
-}
-
-#box1 {
-    display: flex;
-    justify-content: space-between;
 }
 
 #box1 {
