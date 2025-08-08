@@ -55,3 +55,18 @@ input[type="search"]{width:100%; padding:10px 12px; border:1px solid var(--borde
 .update{padding:10px 12px; border:1px solid var(--border); border-radius:10px; background:#fff}
 .tagbar{display:flex; gap:8px; flex-wrap:wrap}
 blockquote{border-left:3px solid var(--accent); margin:0; padding:12px; background:#fffef5}
+
+.brand .avatar {
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid var(--border);
+  background:#f2f2f2;
+}
+@media (max-width: 900px){
+  .brand .avatar {
+    width:52px;
+    height:52px;
+  }
+}
