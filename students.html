@@ -15,6 +15,11 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">
+         <!-- Profile photo slot -->
+        <img class="avatar" src="assets/profile.jpg"
+             alt="Rahul Gomes portrait"
+             onload="this.nextElementSibling && (this.nextElementSibling.style.display='none')"
+             onerror="this.style.display='none'"/>
         <div class="dot"></div>
         <div>
           <h1>Rahul Gomes, Ph.D.</h1>
@@ -59,23 +64,6 @@
   <input id="sSearch" type="search" placeholder="Search students by name, role, focus..." oninput="renderStudents()"/>
 </div>
 <div id="students" class="list"></div>
-<script>
-let STUDENTS=[]
-async function renderStudents(){
-  if(STUDENTS.length===0){ STUDENTS = await fetchJSON('data/students.json'); }
-  const q = qs('sSearch').value;
-  const filtered = searchFilter(STUDENTS, q, ['name','role','focus','since']);
-  const cont = qs('students'); cont.innerHTML = '';
-  filtered.forEach(s=>{
-    cont.appendChild(el('div',{class:'card'},[
-      el('div',{html:'<strong>'+s.name+'</strong> — '+s.role}),
-      el('div',{class:'small muted'},['Since '+(s.since||'')]),
-      el('div',{},[s.focus||''])
-    ]))
-  })
-}
-renderStudents();
-</script>
 
     </div>
   </main>
