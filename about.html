@@ -15,7 +15,13 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">
+        <!-- Profile photo slot -->
+        <img class="avatar" src="assets/profile.jpg"
+             alt="Rahul Gomes portrait"
+             onload="this.nextElementSibling && (this.nextElementSibling.style.display='none')"
+             onerror="this.style.display='none'"/>
         <div class="dot"></div>
+
         <div>
           <h1>Rahul Gomes, Ph.D.</h1>
           <div class="sub">Associate Professor · Computer Science · University of Wisconsin–Eau Claire</div>
@@ -23,7 +29,6 @@
       </div>
       <div class="icon-links">
         <a class="icon" href="https://scholar.google.com/citations?user=s2LUBTQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
-          <!-- simple GS icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l7-7 7 7-7 7-7-7z"/></svg>
         </a>
         <a class="icon" href="https://www.webofscience.com/wos/author/record/Z-4475-2019" target="_blank" title="Web of Science" aria-label="Web of Science">
@@ -51,36 +56,37 @@
   </div>
 </header>
 
-  <main>
-    <div class="container">
-      
-<h2>About</h2>
-<p>Associate Professor in the Department of Computer Science at UW–Eau Claire. My work focuses on interpretable and reliable machine learning for clinical applications, spatial data analytics, and building sustainable HPC pipelines for undergraduate research.</p>
-<div class="grid">
-  <div class="left">
-    <div class="card">
-      <h3>Education</h3>
-      <div id="edu"></div>
-    </div>
-    <div class="card">
-      <h3>Employment</h3>
-      <div id="emp"></div>
-    </div>
-  </div>
-  <div class="right">
-    <div class="card">
-      <h3>Invited Talks</h3>
-      <div id="talks"></div>
-    </div>
-    <div class="card">
-      <h3>Awards & Scholarships</h3>
-      <div id="awards"></div>
-    </div>
-  </div>
-</div>
+<main>
+  <div class="container">
 
+    <h2>Biography</h2>
+    <div id="bio"><p style="color:#666;font-style:italic;">Loading…</p></div>
+
+    <div class="grid">
+      <div class="left">
+        <div class="card">
+          <h3>Education</h3>
+          <div id="education"><p style="color:#666;font-style:italic;">Loading…</p></div>
+        </div>
+        <div class="card">
+          <h3>Employment</h3>
+          <div id="employment"><p style="color:#666;font-style:italic;">Loading…</p></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="card">
+          <h3>Invited Talks</h3>
+          <div id="talks"><p style="color:#666;font-style:italic;">Loading…</p></div>
+        </div>
+        <div class="card">
+          <h3>Awards & Scholarships</h3>
+          <div id="awards"><p style="color:#666;font-style:italic;">Loading…</p></div>
+        </div>
+      </div>
     </div>
-  </main>
+
+  </div>
+</main>
   
 <footer class="footer">
   <div class="container">
@@ -90,7 +96,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
-  <script src="assets/script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>
