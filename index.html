@@ -15,7 +15,13 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">
+        <!-- Profile photo -->
+        <img class="avatar" src="assets/profile.jpg"
+             alt="Rahul Gomes portrait"
+             onload="this.nextElementSibling && (this.nextElementSibling.style.display='none')"
+             onerror="this.style.display='none'"/>
         <div class="dot"></div>
+
         <div>
           <h1>Rahul Gomes, Ph.D.</h1>
           <div class="sub">Associate Professor · Computer Science · University of Wisconsin–Eau Claire</div>
@@ -23,7 +29,6 @@
       </div>
       <div class="icon-links">
         <a class="icon" href="https://scholar.google.com/citations?user=s2LUBTQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
-          <!-- simple GS icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l7-7 7 7-7 7-7-7z"/></svg>
         </a>
         <a class="icon" href="https://www.webofscience.com/wos/author/record/Z-4475-2019" target="_blank" title="Web of Science" aria-label="Web of Science">
@@ -51,42 +56,25 @@
   </div>
 </header>
 
-  <main>
-    <div class="container">
-      
-<section class="hero">
-  <div class="kicker">Welcome</div>
-  <h2 style="margin:6px 0 12px 0">Machine Learning · Healthcare · Spatial Analytics · HPC Education</h2>
-  <p>Welcome to my research group at the University of Wisconsin–Eau Claire. We build interpretable ML for healthcare, advance spatial analytics, and expand access to high-performance computing for undergraduate research.</p>
-</section>
+<main>
+  <div class="container">
+    <section class="hero">
+      <div class="kicker">Welcome</div>
+      <h2 style="margin:6px 0 12px 0">Machine Learning · Healthcare · Spatial Analytics · HPC Education</h2>
+      <p>Welcome to my research group at the University of Wisconsin–Eau Claire. We build interpretable ML for healthcare, advance spatial analytics, and expand access to high-performance computing for undergraduate research.</p>
+    </section>
 
-<section>
-  <h3>Recent Updates</h3>
-  <div class="searchbar">
-    <input id="uSearch" type="search" placeholder="Search updates..." oninput="renderUpdates()"/>
+    <section>
+      <h3>Recent Updates</h3>
+      <div class="searchbar">
+        <input id="uSearch" type="search" placeholder="Search updates..."/>
+      </div>
+      <div id="updates" class="list">
+        <p style="color:#666;font-style:italic;">Loading…</p>
+      </div>
+    </section>
   </div>
-  <div id="updates" class="list"></div>
-</section>
-<script>
-let updates = []
-async function renderUpdates(){
-  if(updates.length===0){ updates = await fetchJSON('data/updates.json'); }
-  const q = qs('uSearch').value;
-  const filtered = searchFilter(updates, q, ['title','detail','date']);
-  const cont = qs('updates'); cont.innerHTML = '';
-  filtered.sort((a,b)=> b.date.localeCompare(a.date)).forEach(u=>{
-    cont.appendChild(el('div',{class:'update'},[
-      el('div',{class:'small muted'},[u.date]),
-      el('div',{html:'<strong>'+u.title+'</strong>'}),
-      el('div',{},[u.detail||''])
-    ]))
-  })
-}
-renderUpdates();
-</script>
-
-    </div>
-  </main>
+</main>
   
 <footer class="footer">
   <div class="container">
@@ -96,7 +84,6 @@ renderUpdates();
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
-  <script src="assets/script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>
