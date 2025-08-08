@@ -1,0 +1,100 @@
+[
+  {
+    "years": "2025\u20132028",
+    "title": "NSF REU Site: Advancing high-performance computing opportunities in undergraduate research at UW\u2013Eau Claire",
+    "amount": "$459,810",
+    "role": "PI",
+    "notes": "Co-PI: Ying Ma"
+  },
+  {
+    "years": "2024\u20132027",
+    "title": "NSF RET Site: Teachers As Researchers in Computing Classrooms (TARCC)",
+    "amount": "$550,786",
+    "role": "Co-PI",
+    "notes": "PI: Anthony Varghese; Co-PIs: Rahul Gomes, Katrina Rothrock, Abhimanyu Ghosh"
+  },
+  {
+    "years": "2022\u20132026",
+    "title": "NSF REU Site: Advancing high-performance computing opportunities in undergraduate research at UW\u2013Eau Claire",
+    "amount": "$384,762",
+    "role": "PI",
+    "notes": "Co-PI: Sudeep Bhattacharyay"
+  },
+  {
+    "years": "2023\u20132025",
+    "title": "UWEC & Mayo Clinic \u2013 On-pump vs off-pump CABG ML study",
+    "amount": "$9,999.44",
+    "role": "Co-PI",
+    "notes": "PI: Nishant Saran"
+  },
+  {
+    "years": "2021\u20132022",
+    "title": "Tommy G. Thompson Center on Public Leadership \u2013 HPC Policies in Undergraduate Education",
+    "amount": "$94,368",
+    "role": "Co-PI",
+    "notes": "PI: Ying Ma; Co-PI: Rahul Gomes, Sudeep Bhattacharyay"
+  },
+  {
+    "years": "2020\u20132022",
+    "title": "NDSU CDTS in Pancreatic Cancer \u2013 Methylation & gene expression for early detection",
+    "amount": "$15,000",
+    "role": "Co-PI",
+    "notes": "PI: Rick Jansen"
+  },
+  {
+    "years": "2021\u20132022",
+    "title": "UWEC & Mayo \u2013 Detection of IVC Filters on CT using AI",
+    "amount": "$33,965",
+    "role": "Co-PI",
+    "notes": "PI: Joe Wildenberg"
+  },
+  {
+    "years": "2021\u20132023",
+    "title": "UWEC & Mayo \u2013 Predicting Chemotherapy Outcomes in PDAC from CT",
+    "amount": "\u2014",
+    "role": "PI",
+    "notes": "Mayo PI: Sushil Kumar Garg"
+  },
+  {
+    "years": "2021\u20132023",
+    "title": "Biomedical Innovation Grant \u2013 PDAC pathways in humans and GEMM",
+    "amount": "$15,000",
+    "role": "PI (UWEC)",
+    "notes": "NDSU PI: Rick Jansen"
+  },
+  {
+    "years": "2020\u2013present",
+    "title": "UWEC ORSP Undergraduate Research Internal Grants (multiple)",
+    "amount": "various",
+    "role": "PI/Co-PI",
+    "notes": "Kidney TMA segmentation; Satellite imagery; COVID-19 severity prediction"
+  },
+  {
+    "years": "2019\u20132020",
+    "title": "NDEPSCoR seed award \u2013 NDCyberGIS Big data + NoSQL for geovis + ML",
+    "amount": "$9,986.24",
+    "role": "PI",
+    "notes": "Co-PI: Anne Denton"
+  },
+  {
+    "years": "2019\u20132020",
+    "title": "NDEPSCoR seed award \u2013 Cyberpatriot K12 STEM outreach",
+    "amount": "$5,987.34",
+    "role": "Co-PI",
+    "notes": "PI: Darren Seifert; Co-PI: Rahul Gomes, Sayeed Sajal"
+  },
+  {
+    "years": "2021 (Denied)",
+    "title": "UW System Regent Scholar Grant \u2013 PDAC diagnosis from CT using DL",
+    "amount": "$50,000 (requested)",
+    "role": "PI",
+    "notes": "Denied"
+  },
+  {
+    "years": "2020 (Denied)",
+    "title": "NSF CISE CRII \u2013 DL architecture optimization for high-dimensional data",
+    "amount": "$175,000 (requested)",
+    "role": "PI",
+    "notes": "Denied"
+  }
+]

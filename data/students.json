@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Alice Student",
+    "role": "PhD Candidate",
+    "focus": "Interpretable ML for clinical AI",
+    "since": "2023"
+  },
+  {
+    "name": "Bob Student",
+    "role": "Postdoc",
+    "focus": "Uncertainty quantification",
+    "since": "2024"
+  }
+]

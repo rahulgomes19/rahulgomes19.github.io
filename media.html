@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media Coverage — Rahul Gomes</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+<header class="header">
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <h1>Rahul Gomes, Ph.D.</h1>
+          <div class="sub">Associate Professor · Computer Science · University of Wisconsin–Eau Claire</div>
+        </div>
+      </div>
+      <div class="icon-links">
+        <a class="icon" href="https://scholar.google.com/citations?user=s2LUBTQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
+          <!-- simple GS icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l7-7 7 7-7 7-7-7z"/></svg>
+        </a>
+        <a class="icon" href="https://www.webofscience.com/wos/author/record/Z-4475-2019" target="_blank" title="Web of Science" aria-label="Web of Science">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        </a>
+        <a class="icon" href="cv.html" title="Download CV" aria-label="CV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v14m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        </a>
+        <a class="icon" href="mailto:gomesr@uwec.edu" title="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="students.html">Students</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="publications.html">Publications</a>
+      <a href="grants.html">Grants</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <div class="container">
+      
+<h2>Media Coverage</h2>
+<div class="card">
+  <div class="searchbar">
+    <input id="mSearch" type="search" placeholder="Search media..." oninput="renderMedia()"/>
+  </div>
+  <div id="media" class="list"></div>
+</div>
+<script>
+let MEDIA=[]
+async function renderMedia(){
+  if(MEDIA.length===0){ MEDIA = await fetchJSON('data/media.json'); }
+  const q = qs('mSearch').value;
+  const filtered = searchFilter(MEDIA, q, ['title','source','year']);
+  const cont = qs('media'); cont.innerHTML='';
+  filtered.sort((a,b)=> b.year - a.year).forEach(m=>{
+    cont.appendChild(el('div',{class:'card'},[
+      el('div',{html:'<strong>'+m.title+'</strong>'}),
+      el('div',{class:'small muted'},[m.source+' • '+m.year]),
+      el('div',{html: m.link ? '<a target="_blank" href="'+m.link+'">Read</a>' : ''})
+    ]))
+  })
+}
+renderMedia();
+</script>
+
+    </div>
+  </main>
+  
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Rahul Gomes — Department of Computer Science, UW–Eau Claire
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{
+  "bio_short": "Associate Professor of Computer Science at the University of Wisconsin\u2013Eau Claire. My research spans machine learning for healthcare, spatial analytics, and high-performance computing for undergraduate research.",
+  "education": [
+    {
+      "degree": "Ph.D., Computer Science",
+      "inst": "North Dakota State University, Fargo, ND",
+      "year": "Dec 2019",
+      "note": "Dissertation: Incorporating Sliding Window-Based Aggregation for Evaluating Topographic Variables in GIS"
+    },
+    {
+      "degree": "M.S., Computer Science",
+      "inst": "Sikkim Manipal University, Sikkim, India",
+      "year": "Apr 2014"
+    },
+    {
+      "degree": "B.Ed., Science",
+      "inst": "St. Xavier\u2019s College, Kolkata, India",
+      "year": "Aug 2012"
+    },
+    {
+      "degree": "B.S., Computer Science",
+      "inst": "St. Xavier\u2019s College, Kolkata, India",
+      "year": "Jun 2010"
+    }
+  ],
+  "employment": [
+    {
+      "role": "Associate Professor",
+      "org": "University of Wisconsin\u2013Eau Claire",
+      "years": "Aug 2024 \u2013 Present"
+    },
+    {
+      "role": "Assistant Professor",
+      "org": "University of Wisconsin\u2013Eau Claire",
+      "years": "Jul 2020 \u2013 Jul 2024"
+    },
+    {
+      "role": "Assistant Professor",
+      "org": "Minot State University",
+      "years": "Aug 2019 \u2013 Jun 2020"
+    },
+    {
+      "role": "Instructor",
+      "org": "Minot State University",
+      "years": "Aug 2018 \u2013 Aug 2019"
+    },
+    {
+      "role": "Adjunct Lecturer",
+      "org": "Dakota College at Bottineau",
+      "years": "Aug 2019 \u2013 Dec 2019"
+    },
+    {
+      "role": "CS Instructor",
+      "org": "Johns Hopkins Center for Talented Youth",
+      "years": "Jul 2018 \u2013 Aug 2018"
+    }
+  ],
+  "invited_talks": [
+    {
+      "year": 2024,
+      "title": "Revolutionizing Intelligence: Paradigm Shifts in AI Technology",
+      "venue": "UW\u2013Eau Claire Ask-A-Scientist"
+    },
+    {
+      "year": 2022,
+      "title": "Developing Usable Machine Learning Framework for Biomedical Applications",
+      "venue": "WiSys SPARK Symposium"
+    },
+    {
+      "year": 2021,
+      "title": "How big data is changing the healthcare industry",
+      "venue": "WiSys Innovation BrainStorm (Mayo Clinic & UW\u2013Eau Claire)"
+    },
+    {
+      "year": 2020,
+      "title": "Preparing for graduate school",
+      "venue": "ACM Student Chapter, UW\u2013Eau Claire"
+    },
+    {
+      "year": 2019,
+      "title": "Optimizing image analysis techniques for processing high resolution spatial big data",
+      "venue": "Denison University; St. Mary\u2019s College of California; UW\u2013Oshkosh; UW\u2013Eau Claire"
+    },
+    {
+      "year": 2018,
+      "title": "Analysis of multispectral imaging data and genetic algorithm-based approach towards disaster management and recovery",
+      "venue": "Minot State University; Minnesota State University, Mankato"
+    }
+  ],
+  "awards": [
+    {
+      "year": "2019",
+      "name": "Best Oral Presentation Award",
+      "org": "ICSSG, New York, NY"
+    },
+    {
+      "year": "2018",
+      "name": "Academic Excellence in Computer Science Award",
+      "org": "NDSU College of Science and Mathematics"
+    },
+    {
+      "year": "2017, 2018",
+      "name": "Rahul Devabhaktuni Memorial Scholarship Award",
+      "org": "NDSU Dept. of Computer Science"
+    },
+    {
+      "year": "2018",
+      "name": "Best speaker (3rd)",
+      "org": "Midwest Instruction and Computing Symposium"
+    },
+    {
+      "year": "2017",
+      "name": "Best Speaker (1st)",
+      "org": "NDSU Graduate Research Symposium"
+    },
+    {
+      "year": "2016, 2017",
+      "name": "Student travel grant recipient",
+      "org": "NDSU College of Science & Mathematics"
+    },
+    {
+      "year": "2011\u20132012",
+      "name": "General Secretary",
+      "org": "Department of Education, St. Xavier\u2019s College Kolkata"
+    }
+  ]
+}

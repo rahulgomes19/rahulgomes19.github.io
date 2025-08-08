@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grants — Rahul Gomes</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+<header class="header">
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <h1>Rahul Gomes, Ph.D.</h1>
+          <div class="sub">Associate Professor · Computer Science · University of Wisconsin–Eau Claire</div>
+        </div>
+      </div>
+      <div class="icon-links">
+        <a class="icon" href="https://scholar.google.com/citations?user=s2LUBTQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
+          <!-- simple GS icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l7-7 7 7-7 7-7-7z"/></svg>
+        </a>
+        <a class="icon" href="https://www.webofscience.com/wos/author/record/Z-4475-2019" target="_blank" title="Web of Science" aria-label="Web of Science">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        </a>
+        <a class="icon" href="cv.html" title="Download CV" aria-label="CV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v14m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        </a>
+        <a class="icon" href="mailto:gomesr@uwec.edu" title="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="students.html">Students</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="publications.html">Publications</a>
+      <a href="grants.html">Grants</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <div class="container">
+      
+<h2>Grants</h2>
+<div class="searchbar">
+  <input id="ggSearch" type="search" placeholder="Search grants..." oninput="renderGrantsOnly()"/>
+</div>
+<table class="table">
+  <thead><tr><th>Years</th><th>Title</th><th>Role</th><th>Amount</th><th>Notes</th></tr></thead>
+  <tbody id="gTable"></tbody>
+</table>
+<script>
+let GONLY=[]
+async function renderGrantsOnly(){
+  if(GONLY.length===0){ GONLY = await fetchJSON('data/grants.json'); }
+  const q = qs('ggSearch').value;
+  const filtered = searchFilter(GONLY, q, ['title','role','years','notes']);
+  const tb = qs('gTable'); tb.innerHTML='';
+  filtered.forEach(g=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>'+g.years+'</td><td>'+g.title+'</td><td>'+g.role+'</td><td>'+g.amount+'</td><td>'+(g.notes||'')+'</td>';
+    tb.appendChild(tr);
+  })
+}
+renderGrantsOnly();
+</script>
+
+    </div>
+  </main>
+  
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Rahul Gomes — Department of Computer Science, UW–Eau Claire
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

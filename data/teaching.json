@@ -1,0 +1,78 @@
+[
+  {
+    "course": "CS 268 \u2013 Web Systems",
+    "terms": "Fall 2020, 2021, 2022, 2023, 2024; Spring 2021, 2022"
+  },
+  {
+    "course": "CS 146 \u2013 Big Picture in Computer Science",
+    "terms": "Fall 2021, 2022; Spring 2022, 2023"
+  },
+  {
+    "course": "CS 491/426 \u2013 Deep Learning",
+    "terms": "Winterim 2021; Fall 2021, 2024; Spring 2023"
+  },
+  {
+    "course": "CS 330 \u2013 Programming Languages",
+    "terms": "Spring 2022; Fall 2022, 2024"
+  },
+  {
+    "course": "CS 318 \u2013 Fundamentals of Web Page Design",
+    "terms": "Summer 2021, 2022"
+  },
+  {
+    "course": "CS 376 \u2013 Cryptography and Network Security",
+    "terms": "Spring 2021"
+  },
+  {
+    "course": "CS 396 \u2013 Junior Seminar",
+    "terms": "Fall 2021, 2022, 2023"
+  },
+  {
+    "course": "CS 145 \u2013 Programming for New Programmers (Java)",
+    "terms": "Fall 2020"
+  },
+  {
+    "course": "CS 462 \u2013 Computer Networks",
+    "terms": "Fall 2023"
+  },
+  {
+    "course": "CS 388 \u2013 Unix Programming",
+    "terms": "Fall 2023"
+  },
+  {
+    "course": "CS 485 \u2013 Software Engineering II",
+    "terms": "Fall 2024"
+  },
+  {
+    "course": "CSCI 111 \u2013 Introduction to Web Languages (Minot)",
+    "terms": "Fall 2018, 2019"
+  },
+  {
+    "course": "CSCI 160 \u2013 Computer Science 1 (C++) (Minot)",
+    "terms": "Spring 2019, 2020"
+  },
+  {
+    "course": "CSCI 340 \u2013 Computer Networks (Minot)",
+    "terms": "Fall 2018, 2019"
+  },
+  {
+    "course": "CSCI 356 \u2013 Database Management 1 (Minot)",
+    "terms": "Fall 2018, 2019"
+  },
+  {
+    "course": "CSCI 450 \u2013 Operating Systems (Minot)",
+    "terms": "Spring 2020"
+  },
+  {
+    "course": "CSCI 456 \u2013 Database Management 2 (Minot)",
+    "terms": "Spring 2019"
+  },
+  {
+    "course": "CSCI 458 \u2013 Network Security (Minot)",
+    "terms": "Spring 2019, 2020"
+  },
+  {
+    "course": "ASC 94 \u2013 Beginning Algebra (Dakota College at Bottineau)",
+    "terms": "Fall 2019"
+  }
+]
