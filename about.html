@@ -78,20 +78,6 @@
     </div>
   </div>
 </div>
-<script>
-async function loadAbout(){
-  const a = await fetchJSON('data/about.json');
-  const edu = a.education.map(e=> '<div class="list"><div><strong>'+e.degree+'</strong><br/><span class="meta">'+e.inst+' • '+e.year+'</span><br/>'+(e.note||'')+'</div></div>').join('');
-  const emp = a.employment.map(e=> '<div class="list"><div><strong>'+e.role+'</strong> — '+e.org+'<br/><span class="meta">'+e.years+'</span></div></div>').join('');
-  const talks = a.invited_talks.sort((x,y)=> y.year - x.year).map(t=> '<div class="list"><div><strong>'+t.title+'</strong><br/><span class="meta">'+t.venue+' • '+t.year+'</span></div></div>').join('');
-  const awards = a.awards.map(w=> '<div class="list"><div><strong>'+w.name+'</strong><br/><span class="meta">'+w.org+' • '+w.year+'</span></div></div>').join('');
-  qs('edu').innerHTML = edu;
-  qs('emp').innerHTML = emp;
-  qs('talks').innerHTML = talks;
-  qs('awards').innerHTML = awards;
-}
-loadAbout();
-</script>
 
     </div>
   </main>
