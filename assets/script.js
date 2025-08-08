@@ -166,6 +166,57 @@ document.addEventListener("DOMContentLoaded", () => {
           : `<p style="color:#999;font-style:italic;">No content found.</p>`;
     }
 
+
+async function loadResearch() {
+  const bodyId = "grants";
+  const searchId = "gSearch";
+
+  // loading state
+  const tb = document.getElementById(bodyId);
+  if (tb) tb.innerHTML = `<tr><td colspan="5" style="color:#666;font-style:italic;">Loading…</td></tr>`;
+
+  const data = await fetchJSON("data/grants.json");
+  if (!data) {
+    if (tb) tb.innerHTML = `<tr><td colspan="5" style="color:#999;font-style:italic;">No content found.</td></tr>`;
+    return;
+  }
+
+  const searchEl = document.getElementById(searchId);
+
+  function render() {
+    const q = (searchEl?.value || "").toLowerCase().trim();
+    const filtered = q
+      ? data.filter(g =>
+          ["title","role","years","notes","amount"]
+            .some(k => (g[k] || "").toString().toLowerCase().includes(q))
+        )
+      : data;
+
+    if (!tb) return;
+    tb.innerHTML = "";
+    if (!filtered.length) {
+      tb.innerHTML = `<tr><td colspan="5" style="color:#999;font-style:italic;">No content found.</td></tr>`;
+      return;
+    }
+    filtered.forEach(g => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${g.years || ""}</td>
+        <td>${g.title || ""}</td>
+        <td>${g.role || ""}</td>
+        <td>${g.amount || ""}</td>
+        <td>${g.notes || ""}</td>
+      `;
+      tb.appendChild(tr);
+    });
+  }
+
+  if (searchEl) searchEl.addEventListener("input", render);
+  render();
+}
+
+
+
     /**
      * Router
      */
@@ -173,8 +224,13 @@ document.addEventListener("DOMContentLoaded", () => {
         case "index.html":         loadHome(); break;
         case "publications.html":  loadPublications(); break;
         case "about.html":         loadAbout(); break;
+        case "research.html":        loadResearch(); break;
         default:
             // We'll keep adding loaders for the rest of the pages as we go.
             console.log(`No loader defined yet for ${page}`);
     }
 });
+
+
+
+
