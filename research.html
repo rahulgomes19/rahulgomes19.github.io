@@ -67,21 +67,6 @@
   <thead><tr><th>Years</th><th>Title</th><th>Role</th><th>Amount</th><th>Notes</th></tr></thead>
   <tbody id="gTable"></tbody>
 </table>
-<script>
-let GONLY=[]
-async function renderGrantsOnly(){
-  if(GONLY.length===0){ GONLY = await fetchJSON('data/grants.json'); }
-  const q = qs('ggSearch').value;
-  const filtered = searchFilter(GONLY, q, ['title','role','years','notes']);
-  const tb = qs('gTable'); tb.innerHTML='';
-  filtered.forEach(g=>{
-    const tr = document.createElement('tr');
-    tr.innerHTML = '<td>'+g.years+'</td><td>'+g.title+'</td><td>'+g.role+'</td><td>'+g.amount+'</td><td>'+(g.notes||'')+'</td>';
-    tb.appendChild(tr);
-  })
-}
-renderGrantsOnly();
-</script>
 
     </div>
   </main>
