@@ -15,7 +15,7 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">
-                <!-- Profile photo slot -->
+        <!-- Profile photo slot -->
         <img class="avatar" src="assets/profile.jpg"
              alt="Rahul Gomes portrait"
              onload="this.nextElementSibling && (this.nextElementSibling.style.display='none')"
@@ -28,7 +28,6 @@
       </div>
       <div class="icon-links">
         <a class="icon" href="https://scholar.google.com/citations?user=s2LUBTQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
-          <!-- simple GS icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l7-7 7 7-7 7-7-7z"/></svg>
         </a>
         <a class="icon" href="https://www.webofscience.com/wos/author/record/Z-4475-2019" target="_blank" title="Web of Science" aria-label="Web of Science">
@@ -56,30 +55,26 @@
   </div>
 </header>
 
-  <main>
-    <div class="container">
-      
-<h2>Grants</h2>
-<div class="searchbar">
-  <input id="ggSearch" type="search" placeholder="Search grants..." oninput="renderGrantsOnly()"/>
-</div>
-<table class="table">
-  <thead><tr><th>Years</th><th>Title</th><th>Role</th><th>Amount</th><th>Notes</th></tr></thead>
-  <tbody id="gTable"></tbody>
-</table>
-
+<main>
+  <div class="container">
+    <h2>Research Projects</h2>
+    <div class="searchbar">
+      <input id="projSearch" type="search" placeholder="Search projects, tools, students..."/>
     </div>
-  </main>
-  
+
+    <!-- 2-col responsive grid (script.js will fill this) -->
+    <section id="projectsGrid" class="projects-grid">
+      <div class="card"><p style="color:#666;font-style:italic;">Loading…</p></div>
+    </section>
+  </div>
+</main>
+
 <footer class="footer">
   <div class="container">
     © <span id="year"></span> Rahul Gomes — Department of Computer Science, UW–Eau Claire
   </div>
 </footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-  <script src="assets/script.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
 </body>
 </html>
