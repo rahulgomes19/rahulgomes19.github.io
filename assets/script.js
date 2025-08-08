@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-async function loadResearch() {
+async function loadGrants() {
   const bodyId = "grants";
   const searchId = "gSearch";
 
@@ -224,7 +224,7 @@ async function loadResearch() {
         case "index.html":         loadHome(); break;
         case "publications.html":  loadPublications(); break;
         case "about.html":         loadAbout(); break;
-        case "grants.html":        loadResearch(); break;
+        case "grants.html":        loadGrants(); break;
         default:
             // We'll keep adding loaders for the rest of the pages as we go.
             console.log(`No loader defined yet for ${page}`);
