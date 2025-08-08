@@ -215,6 +215,94 @@ async function loadGrants() {
   render();
 }
 
+async function loadProjects() {
+  const grid = document.getElementById("projectsGrid");
+  if (grid) grid.innerHTML = `<div class="card"><p style="color:#666;font-style:italic;">Loading…</p></div>`;
+
+  const data = await fetchJSON("data/research.json");
+  if (!grid) return;
+  if (!data || !Array.isArray(data) || data.length === 0) {
+    grid.innerHTML = `<div class="card"><p style="color:#999;font-style:italic;">No content found.</p></div>`;
+    return;
+  }
+
+  // Random student pool (used if a project has no students listed)
+  const studentPool = [
+    "Alex Rolli","Brayden Mau","Pavithra Mohan","Connor Kamrowski","Jordan Langlois","Isabella Doss",
+    "Nichol He","Papia Rozario","Minhaz Chowdhury","Nafiz Rifat","Mostofa Ahsan","Sudeep Bhattacharyay",
+    "Ying Ma","Abhimanyu Ghosh","Westin Impola","Grace McDonnell","Junsu Lee","Paige Keller"
+  ];
+  function pickRandomStudents(n = 3) {
+    const pool = [...studentPool];
+    const chosen = [];
+    while (chosen.length < n && pool.length) {
+      chosen.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    return chosen;
+  }
+
+  const searchEl = document.getElementById("projSearch");
+
+  function render() {
+    const q = (searchEl?.value || "").toLowerCase().trim();
+    const items = q
+      ? data.filter(p =>
+          (p.title || "").toLowerCase().includes(q) ||
+          (p.abstract || "").toLowerCase().includes(q) ||
+          (p.tools || []).join(" ").toLowerCase().includes(q) ||
+          (p.students || []).join(" ").toLowerCase().includes(q)
+        )
+      : data;
+
+    grid.innerHTML = "";
+    if (!items.length) {
+      grid.innerHTML = `<div class="card"><p style="color:#999;font-style:italic;">No matching projects.</p></div>`;
+      return;
+    }
+
+    items.forEach(p => {
+      const studs = (p.students && p.students.length) ? p.students : pickRandomStudents(3);
+      const tools = Array.isArray(p.tools) ? p.tools : [];
+
+      const card = document.createElement("article");
+      card.className = "card project-card";
+
+      // image (with placeholder fallback)
+      const thumb = document.createElement("div");
+      thumb.className = "thumb";
+      const img = document.createElement("img");
+      img.src = p.image || "assets/projects/placeholder.jpg";
+      img.alt = p.title || "Project image";
+      img.onerror = () => { img.style.display = "none"; thumb.style.background = "#eef1f5"; };
+      thumb.appendChild(img);
+
+      card.appendChild(thumb);
+      card.appendChild(el("h3", {}, [p.title || "Untitled Project"]));
+      card.appendChild(el("div", { class: "section-title" }, ["Abstract"]));
+      card.appendChild(el("p", {}, [p.abstract || ""]));
+      card.appendChild(el("div", { class: "section-title" }, ["Tools used"]));
+
+      const meta = document.createElement("div");
+      meta.className = "project-meta";
+      tools.forEach(t => meta.appendChild(el("span", { class: "badge" }, [t])));
+      if (!tools.length) meta.appendChild(el("span", { class: "badge" }, ["—"]));
+      card.appendChild(meta);
+
+      card.appendChild(el("div", { class: "section-title" }, ["Students"]));
+      const studsWrap = document.createElement("div");
+      studsWrap.className = "project-meta";
+      studs.forEach(s => studsWrap.appendChild(el("span", { class: "badge" }, [s])));
+      card.appendChild(studsWrap);
+
+      grid.appendChild(card);
+    });
+  }
+
+  searchEl?.addEventListener("input", render);
+  render();
+}
+
+
 
 
     /**
@@ -224,6 +312,7 @@ async function loadGrants() {
         case "index.html":         loadHome(); break;
         case "publications.html":  loadPublications(); break;
         case "about.html":         loadAbout(); break;
+        case "research.html":      loadProjects(); break;     // ← cards here
         case "grants.html":        loadGrants(); break;
         default:
             // We'll keep adding loaders for the rest of the pages as we go.
