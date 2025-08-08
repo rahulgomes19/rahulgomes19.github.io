@@ -66,22 +66,6 @@
     <tbody id="grants"></tbody>
   </table>
 </div>
-<script>
-let GRANTS=[]
-async function renderGrants(){
-  if(GRANTS.length===0){ GRANTS = await fetchJSON('data/grants.json'); }
-  const q = qs('gSearch').value;
-  const filtered = searchFilter(GRANTS, q, ['title','role','years','notes']);
-  const tb = qs('grants'); tb.innerHTML='';
-  filtered.forEach(g=>{
-    const tr = document.createElement('tr');
-    tr.innerHTML = '<td>'+g.years+'</td><td>'+g.title+'</td><td>'+g.role+'</td><td>'+g.amount+'</td><td>'+(g.notes||'')+'</td>';
-    tb.appendChild(tr);
-  })
-}
-renderGrants();
-</script>
-
     </div>
   </main>
   
