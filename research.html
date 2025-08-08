@@ -15,6 +15,11 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">
+                <!-- Profile photo slot -->
+        <img class="avatar" src="assets/profile.jpg"
+             alt="Rahul Gomes portrait"
+             onload="this.nextElementSibling && (this.nextElementSibling.style.display='none')"
+             onerror="this.style.display='none'"/>
         <div class="dot"></div>
         <div>
           <h1>Rahul Gomes, Ph.D.</h1>
@@ -23,7 +28,6 @@
       </div>
       <div class="icon-links">
         <a class="icon" href="https://scholar.google.com/citations?user=s2LUBTQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
-          <!-- simple GS icon -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12l7-7 7 7-7 7-7-7z"/></svg>
         </a>
         <a class="icon" href="https://www.webofscience.com/wos/author/record/Z-4475-2019" target="_blank" title="Web of Science" aria-label="Web of Science">
@@ -51,23 +55,23 @@
   </div>
 </header>
 
-  <main>
-    <div class="container">
-      
-<h2>Research</h2>
-<p>Our group develops interpretable ML for healthcare, spatial analytics, and applied AI systems. We collaborate with clinical and scientific partners to translate methods into impact.</p>
-<div class="card">
-  <h3>Grants & Funding</h3>
-  <div class="searchbar">
-    <input id="gSearch" type="search" placeholder="Search grants..." oninput="renderGrants()"/>
-  </div>
-  <table class="table">
-    <thead><tr><th>Years</th><th>Title</th><th>Role</th><th>Amount</th><th>Notes</th></tr></thead>
-    <tbody id="grants"></tbody>
-  </table>
-</div>
+<main>
+  <div class="container">
+    <h2>Research</h2>
+    <p>Our group develops interpretable ML for healthcare, spatial analytics, and applied AI systems. We collaborate with clinical and scientific partners to translate methods into impact.</p>
+
+    <div class="card">
+      <h3>Grants & Funding</h3>
+      <div class="searchbar">
+        <input id="gSearch" type="search" placeholder="Search grants..."/>
+      </div>
+      <table class="table">
+        <thead><tr><th>Years</th><th>Title</th><th>Role</th><th>Amount</th><th>Notes</th></tr></thead>
+        <tbody id="grants"><tr><td colspan="5" style="color:#666;font-style:italic;">Loading…</td></tr></tbody>
+      </table>
     </div>
-  </main>
+  </div>
+</main>
   
 <footer class="footer">
   <div class="container">
@@ -77,7 +81,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
-  <script src="assets/script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>
