@@ -1,20 +1,19 @@
 // assets/script.js — Universal JSON loader for all pages
 document.addEventListener("DOMContentLoaded", () => {
-    const page = window.location.pathname.split("/").pop().toLowerCase() || "index.html";
+    const page = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
 
     /**
-     * Utility functions
+     * Utilities
      */
-    function qs(id) {
-        return document.getElementById(id);
-    }
+    const qs = (id) => document.getElementById(id);
     function el(tag, attrs = {}, children = []) {
         const element = document.createElement(tag);
         for (let key in attrs) {
             if (key === "html") element.innerHTML = attrs[key];
             else element.setAttribute(key, attrs[key]);
         }
-        children.forEach(child => {
+        (Array.isArray(children) ? children : [children]).forEach(child => {
+            if (child == null) return;
             if (typeof child === "string") element.appendChild(document.createTextNode(child));
             else element.appendChild(child);
         });
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     async function fetchJSON(path) {
         try {
-            const res = await fetch(path);
+            const res = await fetch(path, { cache: "no-store" });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             return await res.json();
         } catch (err) {
@@ -31,91 +30,151 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     function searchFilter(arr, query, keys) {
-        if (!query) return arr;
-        return arr.filter(item => keys.some(k => (item[k] || "").toString().toLowerCase().includes(query)));
+        const q = (query || "").toLowerCase();
+        if (!q) return arr;
+        return arr.filter(item => keys.some(k => (item[k] || "").toString().toLowerCase().includes(q)));
     }
-    function showLoading(containerId) {
-        const elC = qs(containerId);
-        if (elC) elC.innerHTML = `<p style="color:#666;font-style:italic;">Loading…</p>`;
-    }
-    function showEmpty(containerId) {
-        const elC = qs(containerId);
-        if (elC) elC.innerHTML = `<p style="color:#999;font-style:italic;">No content found.</p>`;
-    }
+    function setLoading(id) { const n = qs(id); if (n) n.innerHTML = `<p style="color:#666;font-style:italic;">Loading…</p>`; }
+    function setEmpty(id)   { const n = qs(id); if (n) n.innerHTML = `<p style="color:#999;font-style:italic;">No content found.</p>`; }
 
     /**
-     * Page renderers
+     * Home (index.html)
      */
     async function loadHome() {
-        showLoading("updates");
+        setLoading("updates");
         const data = await fetchJSON("data/updates.json");
-        if (!data || !data.length) return showEmpty("updates");
+        if (!data || !data.length) return setEmpty("updates");
 
         const searchEl = qs("uSearch");
-        function renderList() {
-            const q = searchEl ? searchEl.value.trim().toLowerCase() : "";
-            const filtered = searchFilter(data, q, ["title", "detail", "date"]);
+        function render() {
+            const filtered = searchFilter(data, searchEl?.value, ["title", "detail", "date"])
+                .sort((a, b) => b.date.localeCompare(a.date));
             const cont = qs("updates");
             cont.innerHTML = "";
-            filtered.sort((a, b) => b.date.localeCompare(a.date)).forEach(u => {
+            filtered.forEach(u => {
                 cont.appendChild(el("div", { class: "update" }, [
                     el("div", { class: "small muted" }, [u.date]),
                     el("div", { html: `<strong>${u.title}</strong>` }),
                     el("div", {}, [u.detail || ""])
                 ]));
             });
-            if (!filtered.length) showEmpty("updates");
+            if (!filtered.length) setEmpty("updates");
         }
-        if (searchEl) searchEl.addEventListener("input", renderList);
-        renderList();
+        if (searchEl) searchEl.addEventListener("input", render);
+        render();
     }
 
+    /**
+     * Publications (publications.html)
+     */
     async function loadPublications() {
-        showLoading("peer");
-        showLoading("posters");
-        showLoading("regional");
-
+        ["peer","posters","regional"].forEach(setLoading);
         const data = await fetchJSON("data/publications.json");
-        if (!data) return [showEmpty("peer"), showEmpty("posters"), showEmpty("regional")];
+        if (!data) return ["peer","posters","regional"].forEach(setEmpty);
 
         const searchEl = qs("pSearch");
-        function cite(item) {
+        const cite = (item) => {
             const parts = [];
             if (item.authors) parts.push(item.authors + ". ");
             if (item.title) parts.push("<strong>" + item.title + "</strong>. ");
             if (item.venue) parts.push(item.venue + ". ");
             if (item.year) parts.push(item.year);
-            const doi = item.doi ? ` <a href="https://doi.org/${item.doi}" target="_blank">doi:${item.doi}</a>` :
-                (item.link ? ` <a target="_blank" href="${item.link}">link</a>` : "");
-            return `<div class="citation">${parts.join("")}<div class="meta">${doi}</div></div>`;
+            const link = item.doi ? ` <a href="https://doi.org/${item.doi}" target="_blank">doi:${item.doi}</a>` :
+                         (item.link ? ` <a target="_blank" href="${item.link}">link</a>` : "");
+            return `<div class="citation">${parts.join("")}<div class="meta">${link}</div></div>`;
+        };
+        function render() {
+            const q = searchEl?.value;
+            const peer = searchFilter(data.peer_reviewed || [], q, ["title","authors","venue","year"]).sort((a,b)=>b.year-a.year);
+            const posters = searchFilter(data.posters_and_abstracts || [], q, ["title","authors","venue","year"]).sort((a,b)=>b.year-a.year);
+            const regional = searchFilter(data.regional_ug || [], q, ["title","authors","venue","year"]).sort((a,b)=>b.year-a.year);
+            qs("peer").innerHTML = peer.length ? peer.map(cite).join("") : `<p>No content found.</p>`;
+            qs("posters").innerHTML = posters.length ? posters.map(cite).join("") : `<p>No content found.</p>`;
+            qs("regional").innerHTML = regional.length ? regional.map(cite).join("") : `<p>No content found.</p>`;
         }
-        function renderList() {
-            const q = searchEl ? searchEl.value.trim().toLowerCase() : "";
-            const peer = searchFilter(data.peer_reviewed || [], q, ["title", "authors", "venue", "year"]);
-            const posters = searchFilter(data.posters_and_abstracts || [], q, ["title", "authors", "venue", "year"]);
-            const regional = searchFilter(data.regional_ug || [], q, ["title", "authors", "venue", "year"]);
-            qs("peer").innerHTML = peer.length ? peer.sort((a, b) => b.year - a.year).map(cite).join("") : `<p>No content found.</p>`;
-            qs("posters").innerHTML = posters.length ? posters.sort((a, b) => b.year - a.year).map(cite).join("") : `<p>No content found.</p>`;
-            qs("regional").innerHTML = regional.length ? regional.sort((a, b) => b.year - a.year).map(cite).join("") : `<p>No content found.</p>`;
-        }
-        if (searchEl) searchEl.addEventListener("input", renderList);
-        renderList();
+        if (searchEl) searchEl.addEventListener("input", render);
+        render();
     }
 
-    // TODO: add similar loaders for grants, students, teaching, media, about, contact
-    // We'll implement them as we update each page.
+    /**
+     * About (about.html)
+     * Uses data/about.json:
+     * {
+     *   "bio_short": "...",
+     *   "education":[{"degree":"","inst":"","year":"","note":""}, ...],
+     *   "employment":[{"role":"","org":"","years":""}, ...],
+     *   "invited_talks":[{"year":2024,"title":"","venue":""}, ...],
+     *   "awards":[{"year":"2019","name":"","org":""}, ...]
+     * }
+     */
+    async function loadAbout() {
+        ["bio","education","employment","talks","awards"].forEach(setLoading);
+        const a = await fetchJSON("data/about.json");
+        if (!a) return ["bio","education","employment","talks","awards"].forEach(setEmpty);
+
+        // Bio
+        const bio = a.bio_short || a.bio || "";
+        qs("bio").innerHTML = bio ? `<p>${bio}</p>` : `<p style="color:#999;font-style:italic;">No content found.</p>`;
+
+        // Education
+        const edu = Array.isArray(a.education) ? a.education : [];
+        qs("education").innerHTML = edu.length
+          ? edu.map(e => `
+              <div class="list">
+                <div>
+                  <strong>${e.degree || ""}</strong><br/>
+                  <span class="meta">${e.inst || ""}${e.year ? " • " + e.year : ""}</span><br/>
+                  ${e.note ? `<span>${e.note}</span>` : ""}
+                </div>
+              </div>`).join("")
+          : `<p style="color:#999;font-style:italic;">No content found.</p>`;
+
+        // Employment
+        const emp = Array.isArray(a.employment) ? a.employment : [];
+        qs("employment").innerHTML = emp.length
+          ? emp.map(e => `
+              <div class="list">
+                <div>
+                  <strong>${e.role || ""}</strong> — ${e.org || ""}<br/>
+                  <span class="meta">${e.years || ""}</span>
+                </div>
+              </div>`).join("")
+          : `<p style="color:#999;font-style:italic;">No content found.</p>`;
+
+        // Invited Talks
+        const talks = (Array.isArray(a.invited_talks) ? a.invited_talks : []).sort((x,y)=> (y.year||0)-(x.year||0));
+        qs("talks").innerHTML = talks.length
+          ? talks.map(t => `
+              <div class="list">
+                <div>
+                  <strong>${t.title || ""}</strong><br/>
+                  <span class="meta">${t.venue || ""}${t.year ? " • " + t.year : ""}</span>
+                </div>
+              </div>`).join("")
+          : `<p style="color:#999;font-style:italic;">No content found.</p>`;
+
+        // Awards
+        const aw = Array.isArray(a.awards) ? a.awards : [];
+        qs("awards").innerHTML = aw.length
+          ? aw.map(w => `
+              <div class="list">
+                <div>
+                  <strong>${w.name || ""}</strong><br/>
+                  <span class="meta">${w.org || ""}${w.year ? " • " + w.year : ""}</span>
+                </div>
+              </div>`).join("")
+          : `<p style="color:#999;font-style:italic;">No content found.</p>`;
+    }
 
     /**
-     * Page routing
+     * Router
      */
     switch (page) {
-        case "index.html":
-            loadHome();
-            break;
-        case "publications.html":
-            loadPublications();
-            break;
+        case "index.html":         loadHome(); break;
+        case "publications.html":  loadPublications(); break;
+        case "about.html":         loadAbout(); break;
         default:
+            // We'll keep adding loaders for the rest of the pages as we go.
             console.log(`No loader defined yet for ${page}`);
     }
 });
