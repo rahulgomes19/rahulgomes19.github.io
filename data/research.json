@@ -4,41 +4,41 @@
     "image": "assets/projects/ivcf.jpg",
     "abstract": "Deep learning models (e.g., Swin-UNet) to detect and segment inferior vena cava filters on CT, enabling automated registry curation and complication monitoring.",
     "tools": ["Python", "PyTorch", "Swin-UNet", "MONAI", "DICOM"],
-    "students": []
+    "students": [Ian Nie, Mykle Buhrow]
   },
   {
     "title": "PDAC Diagnosis using Deep Learning",
     "image": "assets/projects/pdac-ct.jpg",
     "abstract": "Supervised 2D/3D CNNs on CT for pancreatic ductal adenocarcinoma detection and treatment outcome prediction; interpretable models for clinical use.",
     "tools": ["Python", "PyTorch", "Grad-CAM", "scikit-image"],
-    "students": []
+    "students": [Will Jerome, Adeel Siddiqi, Anya Ranavat]
   },
   {
     "title": "PDAC and scRNA-seq Analysis",
     "image": "assets/projects/scrna.jpg",
     "abstract": "Single-cell RNA-seq integration to characterize PDAC tumor microenvironment; pathway and trajectory analysis to identify actionable targets.",
     "tools": ["Scanpy", "Seurat", "Python/R", "HPC"],
-    "students": []
+    "students": [Paige Keller, Amanda Warren]
   },
   {
     "title": "CABG Outcomes (On-pump vs Off-pump)",
     "image": "assets/projects/cabg.jpg",
     "abstract": "Retrospective analysis of CABG outcomes using ML for risk stratification and protocol optimization across institutional cohorts.",
     "tools": ["Python", "pandas", "XGBoost", "SHAP"],
-    "students": []
+    "students": [Samuel Morehead, Gabriel Tapia]
   },
   {
     "title": "RAG in Healthcare",
     "image": "assets/projects/rag.jpg",
     "abstract": "Retrieval-augmented generation for clinical documentation and patient education; guardrails and privacy-aware pipelines for safe deployment.",
     "tools": ["LangChain", "LlamaIndex", "Vector DB", "OpenAI/OSS LLMs"],
-    "students": []
+    "students": [Clara Bartlett, Will Jerome]
   },
   {
-    "title": "Geospatial Analysis",
+    "title": "Collaborator with Dr. Papia Rozario - Geospatial Analysis",
     "image": "assets/projects/geospatial.jpg",
     "abstract": "Remote sensing and GIS for landform analysis, domain adaptation, and large-window curvature computations on high-resolution DEMs.",
     "tools": ["Python", "GDAL", "Rasterio", "PyTorch", "HPC"],
-    "students": []
+    "students": [Gabriel Tapia]
   }
 ]
