@@ -155,4 +155,44 @@ blockquote{border-left:3px solid var(--accent); margin:0; padding:12px; backgrou
   .hero-landing h1{ font-size:28px; }
 }
 
+.media-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:16px;
+}
+@media (max-width: 900px){
+  .media-grid{ grid-template-columns: 1fr; }
+}
+.media-item{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  gap:14px;
+  align-items:start;
+}
+@media (max-width: 700px){
+  .media-item{ grid-template-columns: 1fr; }
+}
+.media-item .thumb{
+  width:100%;
+  aspect-ratio: 16/9;
+  border-radius:12px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  background:#f6f7fb;
+}
+.media-item .thumb img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.thumb-placeholder{
+  background: repeating-linear-gradient(
+    45deg, #f4f4f8, #f4f4f8 10px, #ececf3 10px, #ececf3 20px
+  );
+}
+.media-item .media-body h3{
+  margin:0 0 6px;
+  font-size:18px;
+}
+.media-item .media-body .small.muted{
+  margin-bottom:8px;
+}
 
