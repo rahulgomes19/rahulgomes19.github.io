@@ -4,7 +4,7 @@
     "image": "assets/projects/ivcf.jpg",
     "abstract": "Deep learning models (e.g., Swin-UNet) to detect and segment inferior vena cava filters on CT, enabling automated registry curation and complication monitoring.",
     "tools": ["Python", "PyTorch", "Swin-UNet", "MONAI", "DICOM"],
-    "students": ["Ian Nie", "Mykle Buhrow"]
+    "students": ["Ian Nie", "Mykle Buhrow"],
     "collaborator": ["Dr. Joseph Wildenberg"]
   },
   {
