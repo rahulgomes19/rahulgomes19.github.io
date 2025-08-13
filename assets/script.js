@@ -313,14 +313,13 @@ async function loadMedia() {
     return;
   }
 
-  // helper: parse YYYY-MM-DD safely; fall back to null
   const parseDate = (s) => {
     if (!s) return null;
     const t = Date.parse(s);
     return Number.isNaN(t) ? null : new Date(t);
   };
-  // sort newest first (nulls last)
-  const sorted = [...data].sort((a,b) => {
+
+  const sorted = [...data].sort((a, b) => {
     const da = parseDate(a.date), db = parseDate(b.date);
     if (da && db) return db - da;
     if (da && !db) return -1;
@@ -329,6 +328,7 @@ async function loadMedia() {
   });
 
   const searchEl = document.getElementById("mSearch");
+
   function render() {
     const q = (searchEl?.value || "").toLowerCase().trim();
     const items = q
@@ -347,30 +347,17 @@ async function loadMedia() {
 
     items.forEach(i => {
       const card = document.createElement("article");
-      card.className = "card media-item";
+      card.className = "card media-item"; // default layout has space for a thumb
 
-      // Thumbnail (optional)
-      const hasImg = !!i.image;
-      const figure = document.createElement("div");
-      figure.className = "thumb";
-      if (hasImg) {
-        const img = document.createElement("img");
-        img.src = i.image;
-        img.alt = i.title || "Media thumbnail";
-        img.onerror = () => { img.style.display = "none"; figure.classList.add("thumb-placeholder"); };
-        figure.appendChild(img);
-      } else {
-        figure.classList.add("thumb-placeholder");
-      }
+      const body = document.createElement("div");
+      body.className = "media-body";
 
-      // Content
       const title = document.createElement("h3");
       title.innerHTML = i.title || "Untitled";
 
       const meta = document.createElement("div");
       meta.className = "small muted";
-      const dateStr = i.date ? i.date : "";
-      meta.textContent = [i.outlet || "", dateStr].filter(Boolean).join(" • ");
+      meta.textContent = [i.outlet || "", i.date || ""].filter(Boolean).join(" • ");
 
       const link = document.createElement("a");
       link.href = i.url || "#";
@@ -379,15 +366,30 @@ async function loadMedia() {
       link.className = "btn ghost";
       link.textContent = "Read";
 
-      const content = document.createElement("div");
-      content.className = "media-body";
-      content.appendChild(title);
-      content.appendChild(meta);
-      content.appendChild(link);
+      body.appendChild(title);
+      body.appendChild(meta);
+      body.appendChild(link);
 
-      // assemble
-      card.appendChild(figure);
-      card.appendChild(content);
+      let thumbAdded = false;
+      if (i.image) {
+        const figure = document.createElement("div");
+        figure.className = "thumb";
+        const img = document.createElement("img");
+        img.src = i.image;
+        img.alt = i.title || "Media thumbnail";
+        img.onload = () => { /* good */ };
+        img.onerror = () => { figure.remove(); card.classList.add("no-thumb"); };
+        figure.appendChild(img);
+        card.appendChild(figure);
+        thumbAdded = true;
+      }
+
+      if (!thumbAdded) {
+        // no image provided; render as text-only layout
+        card.classList.add("no-thumb");
+      }
+
+      card.appendChild(body);
       wrap.appendChild(card);
     });
   }
