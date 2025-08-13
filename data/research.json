@@ -33,12 +33,5 @@
     "abstract": "Retrieval-augmented generation for clinical documentation and patient education; guardrails and privacy-aware pipelines for safe deployment.",
     "tools": ["LangChain", "LlamaIndex", "Vector DB", "OpenAI/OSS LLMs"],
     "students": ["Clara Bartlett", "Will Jerome"]
-  },
-  {
-    "title": "Collaborator with Dr. Papia Rozario - Geospatial Analysis",
-    "image": "assets/projects/geospatial.jpg",
-    "abstract": "Remote sensing and GIS for landform analysis, domain adaptation, and large-window curvature computations on high-resolution DEMs.",
-    "tools": ["Python", "GDAL", "Rasterio", "PyTorch", "HPC"],
-    "students": ["Gabriel Tapia"]
   }
 ]
