@@ -302,6 +302,101 @@ async function loadProjects() {
   render();
 }
 
+async function loadMedia() {
+  const wrap = document.getElementById("media");
+  if (wrap) wrap.innerHTML = `<div class="card"><p style="color:#666;font-style:italic;">Loading…</p></div>`;
+
+  const data = await fetchJSON("data/media.json");
+  if (!wrap) return;
+  if (!data || !Array.isArray(data) || data.length === 0) {
+    wrap.innerHTML = `<div class="card"><p style="color:#999;font-style:italic;">No content found.</p></div>`;
+    return;
+  }
+
+  // helper: parse YYYY-MM-DD safely; fall back to null
+  const parseDate = (s) => {
+    if (!s) return null;
+    const t = Date.parse(s);
+    return Number.isNaN(t) ? null : new Date(t);
+  };
+  // sort newest first (nulls last)
+  const sorted = [...data].sort((a,b) => {
+    const da = parseDate(a.date), db = parseDate(b.date);
+    if (da && db) return db - da;
+    if (da && !db) return -1;
+    if (!da && db) return 1;
+    return 0;
+  });
+
+  const searchEl = document.getElementById("mSearch");
+  function render() {
+    const q = (searchEl?.value || "").toLowerCase().trim();
+    const items = q
+      ? sorted.filter(i =>
+          (i.title || "").toLowerCase().includes(q) ||
+          (i.outlet || "").toLowerCase().includes(q) ||
+          (i.date || "").toLowerCase().includes(q)
+        )
+      : sorted;
+
+    wrap.innerHTML = "";
+    if (!items.length) {
+      wrap.innerHTML = `<div class="card"><p style="color:#999;font-style:italic;">No matching results.</p></div>`;
+      return;
+    }
+
+    items.forEach(i => {
+      const card = document.createElement("article");
+      card.className = "card media-item";
+
+      // Thumbnail (optional)
+      const hasImg = !!i.image;
+      const figure = document.createElement("div");
+      figure.className = "thumb";
+      if (hasImg) {
+        const img = document.createElement("img");
+        img.src = i.image;
+        img.alt = i.title || "Media thumbnail";
+        img.onerror = () => { img.style.display = "none"; figure.classList.add("thumb-placeholder"); };
+        figure.appendChild(img);
+      } else {
+        figure.classList.add("thumb-placeholder");
+      }
+
+      // Content
+      const title = document.createElement("h3");
+      title.innerHTML = i.title || "Untitled";
+
+      const meta = document.createElement("div");
+      meta.className = "small muted";
+      const dateStr = i.date ? i.date : "";
+      meta.textContent = [i.outlet || "", dateStr].filter(Boolean).join(" • ");
+
+      const link = document.createElement("a");
+      link.href = i.url || "#";
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.className = "btn ghost";
+      link.textContent = "Read";
+
+      const content = document.createElement("div");
+      content.className = "media-body";
+      content.appendChild(title);
+      content.appendChild(meta);
+      content.appendChild(link);
+
+      // assemble
+      card.appendChild(figure);
+      card.appendChild(content);
+      wrap.appendChild(card);
+    });
+  }
+
+  searchEl?.addEventListener("input", render);
+  render();
+}
+
+
 
 
 
@@ -314,6 +409,7 @@ async function loadProjects() {
         case "about.html":         loadAbout(); break;
         case "research.html":      loadProjects(); break;     // ← cards here
         case "grants.html":        loadGrants(); break;
+        case "media.html":          loadMedia(); break;
         default:
             // We'll keep adding loaders for the rest of the pages as we go.
             console.log(`No loader defined yet for ${page}`);
