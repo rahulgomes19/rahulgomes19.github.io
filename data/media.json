@@ -1,44 +1,114 @@
 [
   {
-    "year": 2022,
-    "title": "UW\u2013Eau Claire receives major NSF grant for summer undergraduate research",
-    "source": "All In Wisconsin",
-    "link": "https://www.wisconsin.edu/all-in-wisconsin/story/uw-eau-claire-receives-major-nsf-grant-for-summer-undergraduate-research/"
+    "title": "Tech industry job tremors and AI boom propel changes at Wisconsin's colleges",
+    "outlet": "PBS Wisconsin",
+    "date": "2025-08-07",
+    "url": "https://pbswisconsin.org/news-item/tech-industry-job-tremors-and-ai-boom-propel-changes-at-wisconsins-colleges/",
+    "image": null
   },
   {
-    "year": 2021,
-    "title": "Multiple research projects help Blugold gain skills, direction as she looks to future",
-    "source": "All In Wisconsin",
-    "link": "https://www.wisconsin.edu/all-in-wisconsin/story/multiple-research-projects-help-blugold-gain-skills-direction-as-she-looks-to-future/"
+    "title": "Blugolds to present projects at Research in the Rotunda",
+    "outlet": "UW–Eau Claire News",
+    "date": "2025-03-24",
+    "url": "https://www.uwec.edu/stories/blugolds-present-projects-research-rotunda",
+    "image": null
   },
   {
-    "year": 2021,
-    "title": "What is Bioinformatics (Spectrum West)",
-    "source": "Wisconsin Public Radio",
-    "link": "https://www.eauclairechamber.org/uploads/4/9/5/7/49572127/wpr_release_spectrum_west_08_05-21.pdf"
+    "title": "Blugolds rise to challenge with healthcare innovations",
+    "outlet": "UW–Eau Claire News",
+    "date": "2025-03-10",
+    "url": "https://www.uwec.edu/stories/blugolds-rise-challenge-healthcare-innovations",
+    "image": null
   },
   {
-    "year": 2021,
-    "title": "Building bridges between health care and higher education to enhance patient care",
-    "source": "All In Wisconsin",
-    "link": "https://www.wisconsin.edu/all-in-wisconsin/story/uw-eau-claire-building-bridges-between-health-care-and-higher-education-to-enhance-patient-care/"
+    "title": "GRAB YOUR GOGGLES: The Ask-A-Scientist Series is Back",
+    "outlet": "Volume One",
+    "date": "2024-12-04",
+    "url": "https://volumeone.org/articles/2024/12/04/354276-grab-your-goggles-the-ask-a-scientist-series-is",
+    "image": null
   },
   {
-    "year": 2021,
-    "title": "UW\u2013Eau Claire, HPE collaboration a powerful partnership",
-    "source": "All In Wisconsin",
-    "link": "https://www.wisconsin.edu/all-in-wisconsin/story/uw-eau-claire-hpe-collaboration-a-powerful-partnership/"
+    "title": "UW-River Falls, others partner to receive National Science Foundation grant",
+    "outlet": "UW–River Falls Newsroom",
+    "date": "2024-12-23",
+    "url": "https://www.uwrf.edu/News/UW-River-Falls-others-partner-to-receive-National-Science-Foundation-grant.cfm",
+    "image": null
   },
   {
-    "year": 2021,
-    "title": "Powerful new supercomputer will open doors for research and education at UW\u2013Eau Claire",
-    "source": "Milwaukee Journal Sentinel",
-    "link": "https://www.jsonline.com/story/news/education/2021/04/26/uw-eau-claire-unveils-new-supercomputer-partnership-hp/7353222002/"
+    "title": "Press Release: ICYMI: Gov. Evers Celebrates Back-to-School Season Visiting UW Campuses Across the State",
+    "outlet": "Office of Governor Tony Evers",
+    "date": "2024-09-23",
+    "url": "https://content.govdelivery.com/accounts/WIGOV/bulletins/3b78d57",
+    "image": null
   },
   {
-    "year": 2020,
-    "title": "Making big data practical",
-    "source": "ND EPSCoR \u2014 News and Notes",
-    "link": "https://www.ndepscor.ndus.edu/fileadmin/ndus/ndepscor/News_and_Notes_Newsletters/News_and_Notes_Newsletter_February_20.pdf"
+    "title": "UWEC students collaborate with Mayo Clinic on AI model for medical reports",
+    "outlet": "Chippewa Valley Times",
+    "date": "2024-08-22",
+    "url": "https://chippewavalleytimes.com/stories/663696103-uwec-students-collaborate-with-mayo-clinic-on-ai-model-for-medical-reports",
+    "image": null
+  },
+  {
+    "title": "Menard Center and pre-law club host discussion regarding AI and Free Speech",
+    "outlet": "The Spectator (UWEC)",
+    "date": "2024-02-28",
+    "url": "https://www.spectatornews.com/campus-news/2024/02/menard-center-and-pre-law-club-host-a-discussion-ai/",
+    "image": null
+  },
+  {
+    "title": "Faculty members recognized as University Fellows, Karlgaard award winners",
+    "outlet": "UW–Eau Claire Foundation",
+    "date": "2024-03-07",
+    "url": "https://foundation.uwec.edu/news/six-faculty-members-recognized-as-2024-25-university-fellows-5968/",
+    "image": null
+  },
+  {
+    "title": "Faculty feature: Dr. Rahul Gomes",
+    "outlet": "UW–Eau Claire Stories",
+    "date": "2023-09-01",
+    "url": "https://www.uwec.edu/stories/faculty-feature-dr-rahul-gomes",
+    "image": null
+  },
+  {
+    "title": "Blugold research team studies use of artificial intelligence during COVID-19 pandemic",
+    "outlet": "UW–Eau Claire News",
+    "date": "2022-09-20",
+    "url": "https://www.uwec.edu/stories/blugold-research-team-studies-use-artificial-intelligence-during-covid-19-pandemic",
+    "image": null
+  },
+  {
+    "title": "UW–Eau Claire receives major NSF grant for summer undergraduate research",
+    "outlet": "All In Wisconsin (UW System)",
+    "date": "2022-03-03",
+    "url": "https://www.wisconsin.edu/all-in-wisconsin/story/uw-eau-claire-receives-major-nsf-grant-for-summer-undergraduate-research/",
+    "image": null
+  },
+  {
+    "title": "UW–Eau Claire: Building bridges between health care and higher education to enhance patient care",
+    "outlet": "All In Wisconsin (UW System)",
+    "date": "2021-07-30",
+    "url": "https://www.wisconsin.edu/all-in-wisconsin/story/uw-eau-claire-building-bridges-between-health-care-and-higher-education-to-enhance-patient-care/",
+    "image": null
+  },
+  {
+    "title": "UW–Eau Claire, Hewlett Packard collaboration a powerful partnership",
+    "outlet": "Blugold View",
+    "date": "2021-01-01",
+    "url": "https://blugoldview.uwec.edu/2021/uw-eau-claire-hewlett-packard-collaboration-powerful-partnership/",
+    "image": null
+  },
+  {
+    "title": "UW–Eau Claire unveils new supercomputer partnership with HP",
+    "outlet": "Milwaukee Journal Sentinel",
+    "date": "2021-04-26",
+    "url": "https://www.jsonline.com/story/news/education/2021/04/26/uw-eau-claire-unveils-new-supercomputer-partnership-hp/7353222002/",
+    "image": null
+  },
+  {
+    "title": "UWEC student researchers explore how AI can help understand health care",
+    "outlet": "Leader-Telegram",
+    "date": null,
+    "url": "https://www.leadertelegram.com/news/local/uwec-student-researchers-explore-how-ai-can-help-understand-heath-care/article_ca3eaf80-63e5-11ef-b67b-d7a625337c19.html",
+    "image": null
   }
 ]
