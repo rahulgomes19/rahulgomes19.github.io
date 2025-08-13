@@ -196,3 +196,8 @@ blockquote{border-left:3px solid var(--accent); margin:0; padding:12px; backgrou
   margin-bottom:8px;
 }
 
+/* Media layout: when no thumbnail, use single-column */
+.media-item.no-thumb {
+  grid-template-columns: 1fr;
+}
+
