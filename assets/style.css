@@ -108,7 +108,7 @@ blockquote{border-left:3px solid var(--accent); margin:0; padding:12px; backgrou
   padding:28px;
   background:
     linear-gradient(180deg, rgba(255,255,255,.9), rgba(250,250,250,.9)),
-    url('assets/hero-bg.jpg');
+    url('hero-bg.jpg');
   background-size:cover;
   background-position:center;
 }
