@@ -7,7 +7,7 @@
         "title": "Deep Learning",
         "short": "Foundations and applications of deep learning; modern model training and interpretation.",
         "badges": ["Python", "PyTorch", "TensorFlow", "CNNs/RNNs"],
-        "notes": "Project-based; medical imaging and NLP examples."
+        "notes": "Project-based; medical imaging and NLP examples.",
         "image": "assets/courses/cs426.jpg"
       },
       {
@@ -15,7 +15,7 @@
         "title": "Programming Languages",
         "short": "Design principles and paradigms; emphasis on learning new languages and C++ internals.",
         "badges": ["Paradigms", "C++", "Runtime/Memory", "Type Systems"],
-        "notes": "Language survey + deeper dive in C++."
+        "notes": "Language survey + deeper dive in C++.",
         "image": "assets/courses/cs426.jpg"
       }
     ]
@@ -25,56 +25,56 @@
       "code": "CS 268",
       "title": "Web Systems",
       "short": "Programming for the web; frameworks, APIs, server setup, and security.",
-      "badges": ["HTTP", "APIs", "Security"]
+      "badges": ["HTTP", "APIs", "Security"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 318",
       "title": "Fundamentals of Web Page Design",
       "short": "Client-side fundamentals: HTML/CSS, accessibility, layout, interaction.",
-      "badges": ["HTML", "CSS", "Accessibility"]
+      "badges": ["HTML", "CSS", "Accessibility"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 376",
       "title": "Cryptography and Network Security",
       "short": "Classical/modern crypto and protocols; security engineering.",
-      "badges": ["Crypto", "TLS/IPsec", "Auth"]
+      "badges": ["Crypto", "TLS/IPsec", "Auth"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 388",
       "title": "UNIX Systems Programming",
       "short": "Shell & tools, processes, filesystems, scripting, and C/C++ systems programming.",
-      "badges": ["POSIX", "Shell", "C/C++"]
+      "badges": ["POSIX", "Shell", "C/C++"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 425",
       "title": "Machine Learning",
       "short": "Supervised/unsupervised learning and practical ML workflows.",
-      "badges": ["ML", "Supervised", "Unsupervised"]
+      "badges": ["ML", "Supervised", "Unsupervised"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 462",
       "title": "Computer Networks",
       "short": "Transmission, error control, routing/switching; TCP/IP, 802.x, wireless/mobile.",
-      "badges": ["TCP/IP", "Routing", "802.x"]
+      "badges": ["TCP/IP", "Routing", "802.x"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 485",
       "title": "Software Engineering II",
       "short": "Team-based capstone: requirements→delivery with testing and service-learning.",
-      "badges": ["Teams", "SDLC", "Capstone"]
+      "badges": ["Teams", "SDLC", "Capstone"],
       "image": "assets/courses/cs426.jpg"
     },
     {
       "code": "CS 491",
       "title": "Special Topics",
       "short": "Topic-driven advanced study (e.g., algorithms, security, data mining, comp bio).",
-      "badges": ["Topics vary"]
+      "badges": ["Topics vary"],
       "image": "assets/courses/cs426.jpg"
     }
   ]
