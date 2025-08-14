@@ -266,4 +266,20 @@ blockquote{border-left:3px solid var(--accent); margin:0; padding:12px; backgrou
   white-space:nowrap; /* nicer badges */
 }
 
+/* Ensure image icons fit like your old SVGs */
+.icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Highlight current page in nav */
+.site-nav a.active {
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(0,0,0,0.04);
+  border-radius: 6px;
+}
+
+
 
