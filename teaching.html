@@ -56,39 +56,33 @@
   </div>
 </header>
 
-  <main>
-    <div class="container">
-      
-<h2>Teaching</h2>
-<div class="card">
-  <div class="searchbar">
-    <input id="tSearch" type="search" placeholder="Search courses..." oninput="renderTeaching()"/>
-  </div>
-  <div id="teach"></div>
-</div>
-<script>
-let TEACH=[]
-async function renderTeaching(){
-  if(TEACH.length===0){ TEACH = await fetchJSON('data/teaching.json'); }
-  const q = qs('tSearch').value;
-  const filtered = searchFilter(TEACH, q, ['course','terms']);
-  qs('teach').innerHTML = filtered.map(c => '<div class="list"><div><strong>'+c.course+'</strong><br/><span class="meta">'+c.terms+'</span></div></div>').join('');
-}
-renderTeaching();
-</script>
+<main>
+  <div class="container">
+    <h2>Teaching</h2>
+    <p class="muted">
+      I design project-centered, hands-on courses that blend core concepts with real-world applications, often integrating datasets and problems from healthcare and geospatial analytics.
+    </p>
 
-    </div>
-  </main>
-  
+    <section class="card">
+      <h3 id="currentTerm">Current Semester</h3>
+      <div id="currentCourses" class="grid two"></div>
+    </section>
+
+    <section class="card">
+      <h3>Previously Offered Courses</h3>
+      <div id="pastCourses" class="grid two"></div>
+      <p class="small muted">Catalog descriptions summarized/adapted from UWEC Computer Science listings.</p>
+    </section>
+  </div>
+</main>
+
 <footer class="footer">
   <div class="container">
     © <span id="year"></span> Rahul Gomes — Department of Computer Science, UW–Eau Claire
   </div>
 </footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/script.js"></script>
 
-  <script src="assets/script.js"></script>
 </body>
 </html>
