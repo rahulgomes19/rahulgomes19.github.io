@@ -201,3 +201,52 @@ blockquote{border-left:3px solid var(--accent); margin:0; padding:12px; backgrou
   grid-template-columns: 1fr;
 }
 
+
+/* Teaching cards grid: max 4 per row, responsive down to 1 */
+.courses-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap:16px;
+}
+@media (max-width: 1200px){
+  .courses-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px){
+  .courses-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px){
+  .courses-grid{ grid-template-columns: 1fr; }
+}
+
+/* Course card layout */
+.course-card{
+  display:flex; flex-direction:column; gap:10px;
+  overflow:hidden; /* keep inner content clipped */
+}
+.course-card .thumb{
+  width:100%;
+  aspect-ratio: 16 / 9;
+  border-radius:12px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  background:#f6f6f8;
+}
+.course-card .thumb img{
+  display:block; width:100%; height:100%; object-fit:cover;
+}
+
+/* Text safety: prevent long strings from blowing out layout */
+.course-card h4, .course-card p, .course-card .small, .course-card .project-meta{
+  overflow-wrap:anywhere; /* avoids horizontal scroll from long tokens */
+}
+
+.project-meta{
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;
+}
+.badge{
+  display:inline-block; padding:2px 8px; border-radius:999px;
+  font-size:12px; border:1px solid var(--border); background:#fafafa;
+  white-space:nowrap; /* nicer badges */
+}
+
+
