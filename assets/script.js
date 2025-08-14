@@ -398,6 +398,37 @@ async function loadMedia() {
   render();
 }
 
+async function loadTeaching(){
+  try {
+    const res = await fetch('data/courses.json');
+    const data = await res.json();
+
+    const term = data.current_semester.term || '';
+    document.getElementById('currentTerm').textContent = `Current Semester — ${term}`;
+
+    const curWrap = document.getElementById('currentCourses');
+    curWrap.innerHTML = data.current_semester.courses.map(courseCard).join('');
+
+    const pastWrap = document.getElementById('pastCourses');
+    pastWrap.innerHTML = data.past_offerings.map(courseCard).join('');
+
+  } catch (err) {
+    console.error('Error loading courses:', err);
+  }
+}
+
+function courseCard(c) {
+  const badges = (c.badges || []).map(b => `<span class="badge">${b}</span>`).join('');
+  const notes = c.notes ? `<p class="small muted">${c.notes}</p>` : '';
+  return `
+    <article class="card">
+      <h4>${c.code} — ${c.title}</h4>
+      <p>${c.short}</p>
+      <div class="project-meta">${badges}</div>
+      ${notes}
+    </article>
+  `;
+}
 
 
 
@@ -412,6 +443,7 @@ async function loadMedia() {
         case "research.html":      loadProjects(); break;     // ← cards here
         case "grants.html":        loadGrants(); break;
         case "media.html":          loadMedia(); break;
+        case "teaching.html":       loadTeaching(); break;
         default:
             // We'll keep adding loaders for the rest of the pages as we go.
             console.log(`No loader defined yet for ${page}`);
