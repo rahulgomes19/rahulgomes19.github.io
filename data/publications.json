@@ -2,6 +2,22 @@
   "peer_reviewed": [
     {
       "year": 2024,
+      "title": "Exploring Feature Selection with Deep Learning for Kidney Tissue Microarray Classification Using Infrared Spectral Imaging",
+      "authors": "Caterer, Zachary; Jordan Langlois; Connor McKeown; Mikayla Hady; Samuel Stumo; Suman Setty; Michael Walsh; and Rahul Gomes",
+      "venue": "Bioengineering",
+      "doi": "10.3390/bioengineering12040366",
+      "link": "https://doi.org/10.3390/bioengineering12040366"
+    },
+    {
+      "year": 2024,
+      "title": "On the Feasibility of a 3D-Printable Conductive Filament-Based Antenna Array for Conformal Applications",
+      "authors": "Konduru, Hemachandra; Benjamin Callies; Dipankar Mitra; Sayan Roy; Shuvashis Dey; and Rahul Gomes",
+      "venue": "IEEE International Symposium on Antennas and Propagation and INC/USNC‐URSI Radio Science Meeting (AP-S/INC-USNC-URSI)",
+      "doi": "10.1109/AP-S/INC-USNC-URSI52054.2024.10686449",
+      "link": "https://doi.org/10.1109/AP-S/INC-USNC-URSI52054.2024.10686449"
+    },
+    {
+      "year": 2024,
       "title": "OSDA-ST: Advancing Open Set Domain Adaptation Through Selective Thresholding in Remote Sensing",
       "authors": "Wang, Andy; Gomes, Rahul; Rozario, Papia F.",
       "venue": "IEEE International Conference on Big Data (BigData)",
