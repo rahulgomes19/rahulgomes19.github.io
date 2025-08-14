@@ -4,7 +4,7 @@
 
   try {
     // fetch header partial (cache-busted on first load if needed)
-    const res = await fetch("/partials/header.html");
+    const res = await fetch("partials/header.html");
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
     mount.innerHTML = html;
