@@ -418,17 +418,34 @@ async function loadTeaching(){
 }
 
 function courseCard(c) {
-  const badges = (c.badges || []).map(b => `<span class="badge">${b}</span>`).join('');
-  const notes = c.notes ? `<p class="small muted">${c.notes}</p>` : '';
+  const badges = (c.badges || []).map(b => `<span class="badge">${escapeHTML(b)}</span>`).join("");
+  const notes = c.notes ? `<p class="small muted">${escapeHTML(c.notes)}</p>` : "";
+  const title = `${escapeHTML(c.code)} — ${escapeHTML(c.title)}`;
+
+  // Optional image: add "image": "assets/courses/cs426.jpg" in data/courses.json
+  const imgHTML = c.image
+    ? `<div class="thumb"><img src="${escapeAttr(c.image)}" alt="${escapeAttr(title)}" onerror="this.closest('.thumb').remove()"></div>`
+    : "";
+
   return `
-    <article class="card">
-      <h4>${c.code} — ${c.title}</h4>
-      <p>${c.short}</p>
+    <article class="card course-card">
+      ${imgHTML}
+      <h4>${title}</h4>
+      <p>${escapeHTML(c.short || "")}</p>
       <div class="project-meta">${badges}</div>
       ${notes}
     </article>
   `;
 }
+
+// tiny sanitizers
+function escapeHTML(s){
+  return String(s || "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+function escapeAttr(s){
+  return String(s || "").replace(/["']/g, m => (m === '"' ? '&quot;' : '&#39;'));
+}
+
 
 
 
